@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {Book} from "../../../types/types";
 import Image from "next/image";
@@ -8,7 +9,6 @@ interface singleBookProps {
 
 
 const SingleBook: React.FC<singleBookProps> = ({ book, onClick}) => {
-    
     return (
       <div>
         <a onClick={onClick}>

@@ -7,10 +7,10 @@ import { Book } from "../../../types/types";
 import React from "react";
 
 const ModifyBook:  React.FC<Book> = ({ book }) => {
-    const [name,setName] = useState('');
-    const [price,setPrice] = useState('');
-    const [category,setCategory] = useState('');
-    const [description,setDescription] = useState('');
+    const [name,setName] = useState(book.name);
+    const [price,setPrice] = useState(book.pirce);
+    const [category,setCategory] = useState(book.category);
+    const [description,setDescription] = useState(book.description);
 
     const dispatch = useDispatch<AppDispatch>();
     
@@ -31,13 +31,13 @@ const ModifyBook:  React.FC<Book> = ({ book }) => {
       <div>
         <form onSubmit={handleSubmit}>
           <label>Name: </label>
-          <input type="text" value={book.name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           <label>Price: </label>
-          <input type="text" value={book.pirce} onChange={(e) => setPrice(e.target.value)} />
+          <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
           <label>Category: </label>
-          <input type="text" value={book.category} onChange={(e) => setCategory(e.target.value)} />
+          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
           <label>Description: </label>
-          <input type="text" value={book.description} onChange={(e) => setDescription(e.target.value)} />
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
           <input type='submit' value='Modify'/>
         </form>
       </div>
