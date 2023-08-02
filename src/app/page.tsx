@@ -19,7 +19,7 @@ export default function Home() {
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       </div>
       <div>
-        <button onClick={onClickAdd} >Add a book</button>
+        <button onClick={onClickAdd} className='absolute top-40 right-5'>Add a book</button>
         {newBook && <AddBook />}
       </div>
      <Suspense fallback={<Loading /> }>

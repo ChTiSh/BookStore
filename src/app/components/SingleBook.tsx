@@ -7,7 +7,6 @@ interface singleBookProps {
     onClick: () => void;
 }
 
-
 const SingleBook: React.FC<singleBookProps> = ({ book, onClick}) => {
     return (
       <div>
@@ -22,8 +21,8 @@ const SingleBook: React.FC<singleBookProps> = ({ book, onClick}) => {
         
         <div>
             <h2>Name: {book.name}</h2>
-            <p>Category: {book.category}</p>
             <p>Price: {book.price}</p>
+            <p>Category: {book.category}</p>
             <p>Description: {book.description}</p>
         </div>
       </div>

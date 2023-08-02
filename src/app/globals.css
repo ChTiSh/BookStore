@@ -30,3 +30,21 @@ nav {
   color: white;
   background:#F38428
 }
+
+button {
+  padding: 20px;
+  margin: 0 20px 0 0;
+  background-color: #F38428;
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+form {
+  flex-direction: column;
+  width: 250px;
+  padding: 20px;
+}
+
+form >input {
+  width: 100%;
+  margin: 10px 0;
+}

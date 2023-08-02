@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <nav className='text-center'>
-          <h2>My Little Bookstore</h2>
+          <h2 className='text-xl py-10'>My Little Bookstore</h2>
         </nav>
         <ReduxProvider>{children}</ReduxProvider>
       </body>

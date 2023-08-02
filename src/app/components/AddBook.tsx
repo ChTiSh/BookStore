@@ -8,7 +8,7 @@ import { Book } from "../../../types/types";
 
 const AddBook:  React.FC = () =>{
     const [name,setName] = useState('');
-    const [price,setPrice] = useState('');
+    const [price,setPrice] = useState(0);
     const [category,setCategory] = useState('');
     const [description,setDescription] = useState('');
 
@@ -39,16 +39,17 @@ const AddBook:  React.FC = () =>{
         {isVisible && (
           <div>
             <form onSubmit={handleSubmit}>
-            <label>Name: </label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <label>Price: </label>
-            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
-            <label>Category: </label>
-            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
-            <label>Description: </label>
-            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-            <button onClick={handleClick}>Back</button>
-            <input type='submit' />
+                <label>Name: </label>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <label>Price: </label>
+                <input type="number" value={price} onChange={(e) => setPrice(e.target.valueAsNumber)} />
+                <label>Category: </label>
+                <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+                <label>Description: </label>
+                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input type='submit' className="bg-white p-5 border-4" />
+                <button className="px-10 mx-auto" onClick={handleClick}>Back</button>
+                
             </form>
           </div>
         )}
