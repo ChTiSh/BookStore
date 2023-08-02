@@ -20,7 +20,7 @@ export const change = createSlice({
         },
         add:(state, action:PayloadAction<Book>)=>{
             const newBook: Book = {
-                    id: Date.now(),
+                    id: action.payload.id,
                     name: action.payload.name,
                     price: action.payload.price,
                     category: action.payload.category,

@@ -1,15 +1,18 @@
 'use client'
 import Image from 'next/image';
-import BookList from './src/app/components/BookList';
-import { useState } from "react";
+import BookList from './components/booklist';
+import { Suspense, useState } from "react";
 import { useSelector } from 'react-redux';
-import { RootState } from './store/store'; 
-import { Book } from "./types/types";
+import { RootState } from '../../store'; 
+import { Book } from "../../types/types";
+import AddBook from './components/addbook';
+import Loading from './loading';
+
 
 export default function Home() {
   const [newBook, setNewBook] = useState(false);
   const onClickAdd = ():any =>{
-    setNewBook(true);
+    setNewBook(!newBook);
   }
   const books: Book[] = useSelector((state: RootState) => state.changeReducer);
   return (
@@ -28,11 +31,14 @@ export default function Home() {
         />
       </div>
       <div>
-        <button onClick={onClickAdd}>Add a book</button>
+        <button onClick={onClickAdd} >Add a book</button>
+        {newBook && <AddBook />}
       </div>
+     <Suspense fallback={<Loading /> }>
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <BookList books={books}/>
+        <BookList books={books} />
       </div>
+      </Suspense>
     </main>
   )
 }

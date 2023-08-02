@@ -1,5 +1,5 @@
 export type Book = {
-    id?: number;
+    id: number;
     name:string; 
     price: string; 
     category: string; 
@@ -12,4 +12,8 @@ export type BookListProps = {
 
 export type SingleBookProps = {
     book: Book;
-  }
+}
+
+export type newBook = {
+    newBook: Boolean;
+}

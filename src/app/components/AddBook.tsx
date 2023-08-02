@@ -1,12 +1,12 @@
 'use client'
+import React from "react";
 import { add } from "../../../store/changeSlice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../store/store";
+import { AppDispatch } from "../../../store";
 import { useState} from "react"
 import { Book } from "../../../types/types";
 
-
-export default function PopUpModal(): JSX.Element {
+const AddBook:  React.FC = () =>{
     const [name,setName] = useState('');
     const [price,setPrice] = useState('');
     const [category,setCategory] = useState('');
@@ -15,6 +15,7 @@ export default function PopUpModal(): JSX.Element {
     const dispatch = useDispatch<AppDispatch>();
     
     const bookDetails: Book = {
+      id: Date.now(),
       name: name,
       price: price, 
       category: category,
@@ -22,12 +23,15 @@ export default function PopUpModal(): JSX.Element {
     }
     const handleSubmit = () =>{
       dispatch(add(bookDetails))
+      console.log(bookDetails);
+      console.log('Form submitted');
+      setIsVisible(false);
     }
 
     const [isVisible, setIsVisible] = useState(true);
 
     const handleClick = (): void => {
-        setIsVisible(false);
+        setIsVisible(!isVisible);
     };
     
     return (
@@ -36,13 +40,13 @@ export default function PopUpModal(): JSX.Element {
           <div>
             <form onSubmit={handleSubmit}>
             <label>Name: </label>
-            <input type="text" onChange={(e) => setName(e.target.value)} />
-            <label>: </label>
-            <input type="text" onChange={(e) => setPrice(e.target.value)} />
-            <label>Name: </label>
-            <input type="text" onChange={(e) => setCategory(e.target.value)} />
-            <label>Name: </label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <label>Price: </label>
+            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+            <label>Category: </label>
+            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+            <label>Description: </label>
+            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
             <button onClick={handleClick}>Back</button>
             <input type='submit' />
             </form>
@@ -51,3 +55,4 @@ export default function PopUpModal(): JSX.Element {
       </div>
     )
 }
+export default AddBook;
